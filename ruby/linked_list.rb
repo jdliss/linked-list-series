@@ -1,10 +1,3 @@
-# Ruby Linked List with CRUD operations
-
-## C => Create
-## R => Read
-## U => Update
-## D => Destroy
-
 class Node
   attr_accessor :data, :next
 
