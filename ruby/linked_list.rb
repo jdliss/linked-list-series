@@ -50,7 +50,6 @@ class LinkedList
 
   def destroy(data)
     node = find(data)
-    parent = find_parent(data)
     if node
       parent = find_parent(data)
       if parent
