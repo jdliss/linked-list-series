@@ -57,10 +57,9 @@ class LinkedList
       else
         @head = node.next
       end
-      true
-    else
-      false
+      return true
     end
+    false
   end
 
   def print(current=@head)
