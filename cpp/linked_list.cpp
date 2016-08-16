@@ -1,12 +1,5 @@
 #include "linked_list.h"
 
-// basic CRUD Linked list in C++
-// 
-// Create X
-// Read X
-// Update X
-// Destroy
-
 LinkedList::LinkedList(string data) {
   this->head = new Node(data);
 }
