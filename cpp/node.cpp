@@ -1,14 +1,6 @@
-#include <string>
+#include "node.h"
 
-using namespace std;
-
-class Node {
-public:
-
-  string data;
-  Node* next;
-
-  Node(string data) {
-    this->data = data;
-  }
-};
+Node::Node(string data) {
+  this->data = data;
+  this->next = NULL;
+}

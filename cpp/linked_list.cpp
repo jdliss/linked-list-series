@@ -1,18 +1,27 @@
-#include "node.cpp"
+#include "linked_list.h"
 
-// C++ basic CRUD Linked List Attempt
-// 
-// Create
-// Read
-// Update
-// Destroy
+LinkedList::LinkedList(string data) {
+  this->head = new Node(data);
+}
 
-class LinkedList {
-public:
+void LinkedList::print() {
+  print(this->head);
+}
 
-  Node* head;
+void LinkedList::print(Node* currentNode) {
+  cout << currentNode->data << endl;
+  if (currentNode->next != NULL) print(currentNode->next);
+}
 
-  LinkedList(string data) {
-    this->head = new Node(data);
+void LinkedList::insert(string data) {
+  insert(data, this->head);
+}
+
+void LinkedList::insert(string data, Node* currentNode) {
+  if (currentNode->next == NULL) {
+    currentNode->next = new Node(data);
+  } else {
+    insert(data, currentNode->next);
   }
-};
+}
+
