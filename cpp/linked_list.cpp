@@ -3,7 +3,7 @@
 // basic CRUD Linked list in C++
 // 
 // Create X
-// Read
+// Read X
 // Update
 // Destroy
 
@@ -42,4 +42,15 @@ Node* LinkedList::find(string data, Node* currentNode) {
   } else {
     return find(data, currentNode->next);
   }
+}
+
+bool LinkedList::update(string toFind, string updateValue) {
+  return update(toFind, updateValue, this->head);
+}
+
+bool LinkedList::update(string toFind, string updateValue, Node* currentNode) {
+  Node* node = this->find(toFind);
+  node->data = updateValue;
+
+  return node->data == updateValue;
 }

@@ -17,4 +17,7 @@ class LinkedList {
 
   Node* find(string);
   Node* find(string, Node*);
+
+  bool update(string, string);
+  bool update(string, string, Node*);
 };
