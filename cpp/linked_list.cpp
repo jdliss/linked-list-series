@@ -4,7 +4,7 @@
 // 
 // Create X
 // Read X
-// Update
+// Update X
 // Destroy
 
 LinkedList::LinkedList(string data) {
@@ -53,4 +53,26 @@ bool LinkedList::update(string toFind, string updateValue, Node* currentNode) {
   node->data = updateValue;
 
   return node->data == updateValue;
+}
+
+Node* LinkedList::findParent(string data, Node* currentNode){
+  if (currentNode->next->data == data) {
+    return currentNode;
+  } else {
+    return this->findParent(data, currentNode->next);
+  }
+}
+
+bool LinkedList::destroy(string data) {
+  Node* node = this->find(data);
+  Node* parent;
+
+  if (node == this->head) {
+    parent = this->head;
+    this->head = node->next;
+  } else {
+    parent = this->findParent(data, this->head);
+    parent->next = node->next;
+  }
+  return parent->next == node->next;
 }

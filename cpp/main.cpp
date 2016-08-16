@@ -7,5 +7,10 @@ int main() {
   ll.insert("second node");
   ll.insert("third node");
 
+  if (ll.destroy("first node")) {
+    cout << "deleted" << endl;
+  }
+
+  ll.print();
   return 0;
 }

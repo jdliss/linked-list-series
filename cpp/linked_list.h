@@ -20,4 +20,9 @@ class LinkedList {
 
   bool update(string, string);
   bool update(string, string, Node*);
+
+  Node* findParent(string, Node*);
+
+  bool destroy(string);
+  bool destroy(string, Node*);
 };
