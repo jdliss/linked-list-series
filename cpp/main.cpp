@@ -7,7 +7,5 @@ int main() {
   ll.insert("second node");
   ll.insert("third node");
 
-  ll.print();
-
   return 0;
 }

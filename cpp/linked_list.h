@@ -14,4 +14,7 @@ class LinkedList {
   
   void insert(string);
   void insert(string, Node*);
+
+  Node* find(string);
+  Node* find(string, Node*);
 };
