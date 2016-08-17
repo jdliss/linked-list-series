@@ -1,11 +1,3 @@
-
-# python linked list - basic CRUD
-
-# Create X
-# Read
-# Update
-# Destroy
-
 class Node:
     def __init__(self, data):
         self.data = data
@@ -24,6 +16,16 @@ class LinkedList:
         if current.next:
             self.print_list(current.next)
 
+    def find_parent(self, data, current=None):
+        if current == None:
+            current = self.head
+
+        if current.next != None:
+            if current.next.data == data:
+                return current
+            else:
+                return self.find_parent(data, current.next)
+            
     def insert(self, data, current=None):
         if current == None:
             current = self.head
@@ -42,9 +44,24 @@ class LinkedList:
         elif current.next != None:
             return self.find(data, current.next)
 
-ll = LinkedList("first node")
-ll.insert("second node")
-ll.insert("third node")
-# ll.print_list()
-node = ll.find("third node")
-print node.data
+    def update(self, find_data, update_data, current=None):
+        if current == None:
+            current = self.head
+
+        if current.data == find_data:
+            current.data = update_data
+            return current.data == update_data
+        elif current.next != None:
+            return self.update(find_data, update_data, current.next)
+        
+    def destroy(self, data):
+        if data == self.head.data:
+            self.head = self.head.next
+        else:
+            node = self.find(data)
+            parent = self.find_parent(data)
+            if node.next != None:
+                parent.next = node.next
+            else:
+                parent.next = None
+                
