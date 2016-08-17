@@ -33,10 +33,18 @@ class LinkedList:
         else:
             self.insert(data, current.next)
 
-    def find(self, data, current):
+    def find(self, data, current=None):
         if current == None:
+            current = self.head
+
+        if current.data == data:
+            return current
+        elif current.next != None:
+            return self.find(data, current.next)
 
 ll = LinkedList("first node")
 ll.insert("second node")
 ll.insert("third node")
-ll.print_list()
+# ll.print_list()
+node = ll.find("third node")
+print node.data
